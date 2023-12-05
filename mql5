@@ -1,0 +1,92 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                                   NoLimits Scalper MT5|
+//|                                   Copyright © 2022, Forex Robot Easy Team|
+//|                                              https://www.forexroboteasy.com|
+//+------------------------------------------------------------------+
+#property strict
+
+// Input parameters
+input double RiskPercentage = 2.0; // Risk percentage per trade
+
+// Global variables
+double AccountBalance;
+double AccountEquity;
+
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+   // Get initial account balance and equity
+   AccountBalance = AccountInfoDouble(ACCOUNT_BALANCE);
+   AccountEquity = AccountInfoDouble(ACCOUNT_EQUITY);
+   
+   return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+   // Perform necessary clean-up tasks before the expert advisor shuts down
+}
+
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+   // Check for bullish market conditions
+   if(IsBullishMarket())
+   {
+      // Execute buy trades based on the strength of bullish market conditions
+      ExecuteBuyTrades();
+   }
+   
+   // Check for bearish market conditions
+   if(IsBearishMarket())
+   {
+      // Execute sell trades based on the strength of bearish market conditions
+      ExecuteSellTrades();
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Function to identify bullish market conditions                   |
+//+------------------------------------------------------------------+
+bool IsBullishMarket()
+{
+   // Add logic to analyze market data and determine bullish market conditions
+   // Return true if market sentiment is bullish, false otherwise
+   return true;
+}
+
+//+------------------------------------------------------------------+
+//| Function to identify bearish market conditions                   |
+//+------------------------------------------------------------------+
+bool IsBearishMarket()
+{
+   // Add logic to analyze market data and determine bearish market conditions
+   // Return true if market sentiment is bearish, false otherwise
+   return false;
+}
+
+//+------------------------------------------------------------------+
+//| Function to execute buy trades based on bullish market conditions |
+//+------------------------------------------------------------------+
+void ExecuteBuyTrades()
+{
+   // Add logic to analyze the strength of bullish market conditions
+   // Execute buy trades based on the strength of bullish market conditions
+}
+
+//+------------------------------------------------------------------+
+//| Function to execute sell trades based on bearish market conditions|
+//+------------------------------------------------------------------+
+void ExecuteSellTrades()
+{
+   // Add logic to analyze the strength of bearish market conditions
+   // Execute sell trades based on the strength of bearish market conditions
+}
